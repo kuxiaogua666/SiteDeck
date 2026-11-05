@@ -323,13 +323,3 @@ SSH 请求须包含 `host`、`user`、可信的 `fingerprint`，以及 `password
 ```
 
 将新配对文件发给工程师，并重启使用旧凭据的本机 daemon。如果 Agent 因到期已退出，需要现场人员重新启动。重新导出配对文件不会延长已有授权。
-
-## REA 分析
-
-已从下载的 REA 源码构建本地 CLI，实际调用其 JavaScript 应用分析能力分析原 CLI 和 Windows Terminal 安装包。分析过程、证据 ID、原生依赖与独立实现选择见 [REA 分析记录](research/findings.md)。所有原始安装包、解包文件和完整 Evidence 均留在本机并由 `.gitignore` 排除。
-
-## 提交源码与部署信息脱敏
-
-提交前运行 `make privacy`；服务器地址从被忽略的 `.local/server-deploy.json` 读取，公开模板为
-`deploy/server-deploy.example.json`。运行目录、配对凭据、实际配置和预配置包不进入仓库。
-可用 `make source-archive` 生成干净源码包；Git 提交钩子与操作说明见 [源码发布说明](docs/publishing.md)。
