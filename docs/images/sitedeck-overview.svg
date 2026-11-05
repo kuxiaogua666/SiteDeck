@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" role="img" aria-labelledby="title desc">
+<title id="title">SiteDeck — 现场工作台</title><desc id="desc">一个工作台连接远程终端、SSH、串口与 TCP UDP 调试，自建 Hub 和多平台 Agent。</desc>
+<defs><linearGradient id="bg" x2="100%" y2="100%"><stop stop-color="#0c1522"/><stop offset="1" stop-color="#142d32"/></linearGradient><linearGradient id="accent" x2="100%" y2="0%"><stop stop-color="#8ce3ba"/><stop offset="1" stop-color="#70baff"/></linearGradient></defs>
+<rect width="1400" height="560" rx="24" fill="#101c29"/><path d="M930 0v560M0 420h1400" stroke="#1a2d3b"/>
+<g font-family="Noto Sans CJK SC">
+<rect x="64" y="60" width="72" height="72" rx="20" fill="#152c32" stroke="#355b52"/><path d="m83 83 17 16-17 16m29 0h9" fill="none" stroke="#8ce3ba" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="158" y="111" font-size="46" font-weight="700" fill="#f0f7fa">SiteDeck</text><text x="66" y="206" font-size="48" font-weight="650" fill="#eff8f5">连接每一个现场</text><text x="68" y="254" font-size="22" fill="#a2b9c6">远程终端 · SSH · 串口 · 网络调试</text>
+<rect x="68" y="296" width="530" height="2" fill="#7bd8b1"/>
+<text x="68" y="339" font-size="18" fill="#9bc6bd">独立部署 Hub　/　多平台 Agent　/　CLI + UI</text>
+<g font-size="15" fill="#a9baca"><text x="68" y="467">Windows · Linux · macOS</text><text x="68" y="501">ARM · MIPS · RISC-V　嵌入式 headless 构建</text></g>
+<rect x="716" y="76" width="612" height="390" rx="16" fill="#0b111c" stroke="#365264"/>
+<path d="M716 123h612" stroke="#2c4153"/><g fill="#64837f"><circle cx="740" cy="99" r="5"/><circle cx="758" cy="99" r="5"/><circle cx="776" cy="99" r="5"/></g><text x="797" y="104" font-size="13" fill="#a0bdc9">SiteDeck / Field workspace</text>
+<g font-size="16"><text x="745" y="165" fill="#80dfb7">Hub</text><text x="859" y="165" fill="#d0e3ee">设备发现 · 授权 · 连接管理</text><path d="M745 189h552" stroke="#253746"/>
+<text x="745" y="225" fill="#80dfb7">Terminal</text><text x="859" y="225" fill="#d0e3ee">Shell / SSH / 共享会话</text><path d="M745 249h552" stroke="#253746"/>
+<text x="745" y="285" fill="#80dfb7">Serial</text><text x="859" y="285" fill="#d0e3ee">HEX 收发 · 时间戳 · 定时发送</text><path d="M745 309h552" stroke="#253746"/>
+<text x="745" y="345" fill="#80dfb7">Network</text><text x="859" y="345" fill="#d0e3ee">UDP / TCP Client / TCP Server</text></g>
+<rect x="743" y="383" width="184" height="40" rx="8" fill="#173c32"/><text x="761" y="409" font-size="14" fill="#91e5bf">P2P / Hub relay</text><text x="951" y="409" font-size="14" fill="#8fa9bd">TLS 端到端业务通道</text>
+</g></svg>

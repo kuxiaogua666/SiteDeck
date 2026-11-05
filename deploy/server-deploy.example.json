@@ -1,0 +1,9 @@
+{
+  "host": "hub.example.invalid",
+  "user": "root",
+  "remoteRoot": "/root/sitedeck",
+  "stateDirectory": ".local/public-hub",
+  "registrationFile": ".local/hub.key",
+  "knownHostsFile": ".local/remote-deploy-known-hosts",
+  "deviceId": ""
+}

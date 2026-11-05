@@ -1,0 +1,40 @@
+#!/bin/sh
+# Store the compressed executable in flash and expand it once per boot in RAM.
+set -eu
+umask 077
+# Resolve the installed location so old /lj deployments keep their identity.
+BASE=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+EXPECTED=$(cut -d ' ' -f 1 "$BASE/site-agent-core.md5")
+case "$EXPECTED" in ''|*[!0-9a-f]*) echo 'Invalid core checksum metadata' >&2; exit 1;; esac
+[ "${#EXPECTED}" = 32 ] || exit 1
+CACHE="/tmp/sitedeck-$EXPECTED"
+if ! mkdir "$CACHE" 2>/dev/null; then
+    [ -d "$CACHE" ] && [ ! -L "$CACHE" ] || { echo 'Unsafe runtime directory' >&2; exit 1; }
+    OWNER=$(ls -ldn "$CACHE" | awk '{print $3}')
+    [ "$OWNER" = "$(id -u)" ] || { echo 'Runtime directory belongs to another user' >&2; exit 1; }
+fi
+chmod 700 "$CACHE"
+CORE="$CACHE/site-agent-core"
+if [ ! -x "$CORE" ]; then
+    STAGED="$CACHE/.core-$$"
+    trap 'rm -f "$STAGED"' EXIT HUP INT TERM
+    gzip -dc "$BASE/site-agent-core.gz" > "$STAGED"
+    ACTUAL=$(md5sum "$STAGED" | cut -d ' ' -f 1)
+    [ "$ACTUAL" = "$EXPECTED" ] || { echo 'Agent core checksum mismatch' >&2; exit 1; }
+    chmod 700 "$STAGED"
+    mv -f "$STAGED" "$CORE"
+    trap - EXIT HUP INT TERM
+fi
+export SSL_CERT_FILE="${SSL_CERT_FILE:-$BASE/ca-certificates.crt}"
+export GOMAXPROCS="${GOMAXPROCS:-1}"
+export GOMEMLIMIT="${GOMEMLIMIT:-32MiB}"
+export GOGC="${GOGC:-50}"
+if [ "${1:-}" = '--headless' ]; then shift; fi
+case "${1:-}" in
+    -h|--help) exec "$CORE" --help ;;
+    '') set -- run ;;
+    -*) set -- run "$@" ;;
+esac
+COMMAND=$1
+shift
+exec "$CORE" "$COMMAND" --config "$BASE/site-agent.json" --data-dir "$BASE/data" "$@"

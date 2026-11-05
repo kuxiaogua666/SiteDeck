@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "hub": "wss://your-hub.example/ws",
+  "registrationToken": "",
+  "remoteEnabled": true,
+  "permissions": ["host"],
+  "autoStart": true,
+  "guestTTLHours": 24
+}

@@ -1,0 +1,6 @@
+{
+  "id": "REPLACE_SESSION_ID",
+  "text": "help\r\n",
+  "pattern": "> ",
+  "regex": false
+}

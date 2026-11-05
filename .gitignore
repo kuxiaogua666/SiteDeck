@@ -1,0 +1,49 @@
+# Build output, downloaded originals and private analysis evidence.
+/bin/
+/research/artifacts/
+/research/evidence/
+
+# Runtime identities, deployment settings, credentials and private packages.
+.local/
+.site-agent/
+/sitedeck-dis/
+/preconfigured/
+/agent-config/
+/validation/
+.env
+.env.*
+!.env.example
+*.local.json
+site-agent.json
+agent-ui.json
+agent.json
+hub-state.json
+pair.json
+*-pair.json
+hub-access-*.json
+ui-runtime.json
+ui-access.key
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+known_hosts*
+ssh-tunnel.pid
+
+# Generated release archives can contain machine-specific configuration.
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.log
+*.pid
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+
+# cmd/*/rsrc_windows_*.syso and deploy/icons/app.ico are public build resources.
+# Keep them tracked so Windows builds do not need a resource compiler.
